@@ -3,6 +3,7 @@ let operation;
 let nextNum;
 let displayTextLoad = 8;
 let displayStart = true;
+let currentNum = '';
 
 
 function add(a, b) {
@@ -72,6 +73,8 @@ deleteBtn.addEventListener('click', () => {
     nextNum = null;
     displayStart = true;
     displayTextLoad = 8;
+    operatorCode = null;
+    currentNum = '';
     calcScrnTxt.textContent = '0';
 });
 
@@ -82,6 +85,7 @@ btnRowDelete.appendChild(clearEntryBtn);
 clearEntryBtn.addEventListener('click', () => {
     displayStart = true;
     displayTextLoad = 8;
+    currentNum = '';
     calcScrnTxt.textContent = '0';
 });
 
@@ -96,13 +100,14 @@ sevenBtn.textContent = '7';
 btnRow1.appendChild(sevenBtn);
 sevenBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '7';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '7';
+        currentNum += calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -113,7 +118,6 @@ eightBtn.textContent = '8';
 btnRow1.appendChild(eightBtn);
 eightBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '8';
@@ -131,7 +135,6 @@ nineBtn.textContent = '9';
 btnRow1.appendChild(nineBtn);
 nineBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '9';
@@ -155,7 +158,10 @@ if (displayStart === true) {
         calcScrnTxt.textContent = '÷';
         displayTextLoad--;
     } else {
-        calcScrnTxt.textContent += '÷';
+        displayStart = true;
+        prevNum = calcScrnTxt.textContent;
+        operatorCode = 4;
+        calcScrnTxt.textContent = '÷';
         displayTextLoad--;
     }
 });
