@@ -37,6 +37,11 @@ function multiply(a, b) {
 function divide(a, b) {
     a = Number(a);
     b = Number(b);
+    if (b == 0) {
+        calcScrnTxt.textContent = 'Stop It!';
+        result = 0;
+        return 0
+    }
     let answer = a / b;
     result = Math.round(answer * 100) / 100;
     calcScrnTxt.textContent = result;
