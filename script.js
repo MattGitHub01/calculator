@@ -2,7 +2,7 @@ let prevNum = 0;
 let nextNum = 0;
 let result = 0;
 let operatorCode = null;
-let displayTextLoad = 8;
+let displayTextLoad = 7;
 let displayStart = true;
 let currentNum = '';
 let deci = true;
@@ -128,7 +128,7 @@ deleteBtn.addEventListener('click', () => {
     operator = null;
     nextNum = null;
     displayStart = true;
-    displayTextLoad = 8;
+    displayTextLoad = 7;
     operatorCode = null;
     currentNum = '';
     calcScrnTxt.textContent = '0';
@@ -140,7 +140,7 @@ clearEntryBtn.textContent = 'CE'
 btnRowDelete.appendChild(clearEntryBtn);
 clearEntryBtn.addEventListener('click', () => {
     displayStart = true;
-    displayTextLoad = 8;
+    displayTextLoad = 7;
     currentNum = '';
     calcScrnTxt.textContent = '0';
 });
@@ -156,6 +156,8 @@ sevenBtn.textContent = '7';
 btnRow1.appendChild(sevenBtn);
 sevenBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '7';
@@ -174,6 +176,8 @@ eightBtn.textContent = '8';
 btnRow1.appendChild(eightBtn);
 eightBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '8';
@@ -193,6 +197,8 @@ nineBtn.textContent = '9';
 btnRow1.appendChild(nineBtn);
 nineBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '9';
@@ -218,7 +224,7 @@ if (displayStart === true) {
         operatorCode = 4;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     } else {
         displayStart = true;
@@ -227,7 +233,7 @@ if (displayStart === true) {
         operatorCode = 4;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     }
 });
@@ -244,6 +250,8 @@ fourBtn.textContent = '4';
 btnRow2.appendChild(fourBtn);
 fourBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '4';
@@ -263,6 +271,8 @@ fiveBtn.textContent = '5';
 btnRow2.appendChild(fiveBtn);
 fiveBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '5';
@@ -281,6 +291,8 @@ sixBtn.textContent = '6';
 btnRow2.appendChild(sixBtn);
 sixBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '6';
@@ -305,7 +317,7 @@ multiplyBtn.addEventListener('click', () => {
         operatorCode = 3;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = 'x';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     } else {
         displayStart = true;
@@ -314,7 +326,7 @@ multiplyBtn.addEventListener('click', () => {
         operatorCode = 3;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += 'x';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     }
 });
@@ -330,6 +342,8 @@ oneBtn.textContent = '1';
 btnRow3.appendChild(oneBtn);
 oneBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '1';
@@ -349,6 +363,8 @@ twoBtn.textContent = '2';
 btnRow3.appendChild(twoBtn);
 twoBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '2';
@@ -367,6 +383,8 @@ threeBtn.textContent = '3';
 btnRow3.appendChild(threeBtn);
 threeBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
+        currentNum = calcScrnTxt.textContent;
+        displayStart = false;
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '3';
@@ -391,7 +409,7 @@ subtractBtn.addEventListener('click', () => {
         operatorCode = 2;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '-';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     } else {
         displayStart = true;
@@ -400,7 +418,7 @@ subtractBtn.addEventListener('click', () => {
         operatorCode = 2;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '-';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     }
 });
@@ -455,21 +473,22 @@ equalsBtn.classList.add('equalsBtn');
 equalsBtn.textContent = '=';
 btnRow4.appendChild(equalsBtn);
 equalsBtn.addEventListener('click', () => {
-    if (displayTextLoad === 0) {
-    } else if (displayStart === true) {
+    if (displayStart === true) {
         displayStart = true;
         nextNum = currentNum;
+        displayTextLoad = 7;
         operate(operatorCode, prevNum, nextNum);
         currentNum = result;
         nextNum = 0;
-        displayTextLoad = 8;
+        displayTextLoad = 7;
     } else {
         displayStart = true;
         nextNum = currentNum;
+        displayTextLoad = 7;
         operate(operatorCode, prevNum, nextNum);
         currentNum = result;
         nextNum = 0;
-        displayTextLoad = 8;
+        displayTextLoad = 7;
     }
 });
 
@@ -486,7 +505,7 @@ addBtn.addEventListener('click', () => {
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '+';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     } else {
         displayStart = true;
@@ -495,7 +514,7 @@ addBtn.addEventListener('click', () => {
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '+';
-        displayTextLoad = 8;
+        displayTextLoad = 7;
         deci = true;
     }
 });
