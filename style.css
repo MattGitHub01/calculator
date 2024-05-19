@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calcBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.calcScrn {
+    width: 100%;
+    background-color: lightgray;
+    height: 50px;
+}
