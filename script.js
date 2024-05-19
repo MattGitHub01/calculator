@@ -79,6 +79,25 @@ subtractBtn.classList.add('subtractBtn');
 subtractBtn.textContent = '-';
 btnPad.appendChild(subtractBtn);
 
+const decimalBtn = document.createElement('button');
+decimalBtn.classList.add('decimalBtn');
+decimalBtn.textContent = '.';
+btnPad.appendChild(decimalBtn);
+
+const zeroBtn = document.createElement('button');
+zeroBtn.classList.add('twoBth');
+zeroBtn.textContent = '0';
+btnPad.appendChild(zeroBtn);
+
+const equalsBtn = document.createElement('button');
+equalsBtn.classList.add('equalsBtn');
+equalsBtn.textContent = '=';
+btnPad.appendChild(equalsBtn);
+
+const addBtn = document.createElement('button');
+addBtn.classList.add('addBtn');
+addBtn.textContent = '+';
+btnPad.appendChild(addBtn);
 
 function add(a, b) {
     return a + b
