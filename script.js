@@ -19,6 +19,7 @@ const calcScrnTxt = document.createElement('div');
 calcScrnTxt.classList.add('calcScrnTxr');
 calcScrn.appendChild(calcScrnTxt);
 
+let displayTextLoad = 8;
 
 const btnPad = document.createElement('div');
 btnPad.classList.add('btnPad');
@@ -33,6 +34,10 @@ const deleteBtn = document.createElement('button');
 deleteBtn.classList.add('deleteBtn');
 deleteBtn.textContent = 'AC'
 btnRowDelete.appendChild(deleteBtn);
+deleteBtn.addEventListener('click', () => {
+    displayTextLoad = 8;
+    calcScrnTxt.textContent = '';
+})
 
 
 const btnRow1 = document.createElement('div');
@@ -44,7 +49,12 @@ sevenBtn.classList.add('sevenBtn');
 sevenBtn.textContent = '7';
 btnRow1.appendChild(sevenBtn);
 sevenBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '7';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '7';
+        displayTextLoad--;
+    }
 })
 
 const eightBtn = document.createElement('button');
@@ -109,7 +119,7 @@ multiplyBtn.classList.add('multiplyBtn');
 multiplyBtn.textContent = 'X';
 btnRow2.appendChild(multiplyBtn);
 multiplyBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += 'X';
+    calcScrnTxt.textContent += 'x';
 })
 
 
