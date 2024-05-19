@@ -5,6 +5,7 @@ let operatorCode = null;
 let displayTextLoad = 8;
 let displayStart = true;
 let currentNum = '';
+let deci = true;
 
 
 function add(a, b) {
@@ -12,6 +13,11 @@ function add(a, b) {
     b = Number(b);
     let answer = a + b;
     result = Math.round(answer * 100) / 100;
+    if (result > 99999999 || result < .0000001) {
+        calcScrnTxt.textContent = 'ERROR';
+        result = 0;
+        return result
+    }
     calcScrnTxt.textContent = result;
     return result;
 }
@@ -21,6 +27,11 @@ function subtract(a ,b) {
     b = Number(b);
     let answer = a - b;
     result = Math.round(answer * 100) / 100;
+    if (result > 99999999 || result < .0000001) {
+        calcScrnTxt.textContent = 'ERROR';
+        result = 0;
+        return result
+    }
     calcScrnTxt.textContent = result;
     return result
 }
@@ -30,6 +41,11 @@ function multiply(a, b) {
     b = Number(b);
     let answer = a * b;
     result = Math.round(answer * 100) / 100;
+    if (result > 99999999 || result < .0000001) {
+        calcScrnTxt.textContent = 'ERROR';
+        result = 0;
+        return result
+    }
     calcScrnTxt.textContent = result;
     return result
 }
@@ -44,6 +60,11 @@ function divide(a, b) {
     }
     let answer = a / b;
     result = Math.round(answer * 100) / 100;
+    if (result > 99999999 || result < .0000001) {
+        calcScrnTxt.textContent = 'ERROR';
+        result = 0;
+        return result
+    }
     calcScrnTxt.textContent = result;
     return result
 }
@@ -193,19 +214,21 @@ divideBtn.addEventListener('click', () => {
 if (displayStart === true) {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 4;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
         displayTextLoad = 8;
+        deci = true;
     } else {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 4;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
         displayTextLoad = 8;
+        deci = true;
     }
 });
 
@@ -278,19 +301,21 @@ multiplyBtn.addEventListener('click', () => {
     if (displayStart === true) {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 3;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = 'x';
         displayTextLoad = 8;
+        deci = true;
     } else {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 3;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += 'x';
         displayTextLoad = 8;
+        deci = true;
     }
 });
 
@@ -362,19 +387,21 @@ subtractBtn.addEventListener('click', () => {
     if (displayStart === true) {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 2;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '-';
         displayTextLoad = 8;
+        deci = true;
     } else {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 2;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '-';
         displayTextLoad = 8;
+        deci = true;
     }
 });
 
@@ -389,14 +416,18 @@ decimalBtn.textContent = '.';
 btnRow4.appendChild(decimalBtn);
 decimalBtn.classList.add('decimalBtn');
 decimalBtn.addEventListener('click', () => {
-    if (displayTextLoad === 0) {
-    } else if (displayStart === true) {
-        displayStart = false;
-        calcScrnTxt.textContent = '.';
-        displayTextLoad--;
-    } else {
-        calcScrnTxt.textContent += '.';
-        displayTextLoad--;
+    if (deci === true && currentNum !== '-') {
+        if (displayTextLoad === 0) {
+        } else if (displayStart === true) {
+            displayStart = false;
+            calcScrnTxt.textContent += '.';
+            displayTextLoad--;
+            deci = false;
+        } else {
+            calcScrnTxt.textContent += '.';
+            displayTextLoad--;
+            deci = false;
+        }
     }
 });
 
@@ -451,18 +482,20 @@ addBtn.addEventListener('click', () => {
     } else if (displayStart === true) {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '+';
         displayTextLoad = 8;
+        deci = true;
     } else {
         displayStart = true;
         prevNum = currentNum;
-        currentNum = 0;
+        currentNum = '-';
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '+';
         displayTextLoad = 8;
+        deci = true;
     }
 });
