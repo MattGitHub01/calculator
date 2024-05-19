@@ -1,5 +1,5 @@
-let prevNum;
-let nextNum;
+let prevNum = 0;
+let nextNum = 0;
 let result = 0;
 let operatorCode = null;
 let displayTextLoad = 8;
@@ -55,7 +55,8 @@ function operate(operator, a, b) {
     } else if (operatorCode == 4) {
         divide(a, b);
     } else {
-        calcScrnTxt.textContent = 'ERROR';
+        result = currentNum;
+        calcScrnTxt.textContent = result;
     }
 }
 
