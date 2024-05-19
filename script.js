@@ -62,7 +62,12 @@ eightBtn.classList.add('eightBtn');
 eightBtn.textContent = '8';
 btnRow1.appendChild(eightBtn);
 eightBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '8';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '8';
+        displayTextLoad--;
+    }
 })
 
 
@@ -71,7 +76,12 @@ nineBtn.classList.add('nineBtn');
 nineBtn.textContent = '9';
 btnRow1.appendChild(nineBtn);
 nineBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '9';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '9';
+        displayTextLoad--;
+    }
 })
 
 
@@ -80,7 +90,12 @@ divideBtn.classList.add('divideBtn');
 divideBtn.textContent = '÷';
 btnRow1.appendChild(divideBtn);
 divideBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '÷';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '÷';
+        displayTextLoad--;
+    }
 })
 
 
@@ -94,7 +109,12 @@ fourBtn.classList.add('fourBtn');
 fourBtn.textContent = '4';
 btnRow2.appendChild(fourBtn);
 fourBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '4';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '4';
+        displayTextLoad--;
+    }
 })
 
 
@@ -103,7 +123,12 @@ fiveBtn.classList.add('fiveBtn');
 fiveBtn.textContent = '5';
 btnRow2.appendChild(fiveBtn);
 fiveBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '5';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '5';
+        displayTextLoad--;
+    }
 })
 
 const sixBtn = document.createElement('button');
@@ -111,15 +136,25 @@ sixBtn.classList.add('sixBtn');
 sixBtn.textContent = '6';
 btnRow2.appendChild(sixBtn);
 sixBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '6';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '6';
+        displayTextLoad--;
+    }
 })
 
 const multiplyBtn = document.createElement('button');
 multiplyBtn.classList.add('multiplyBtn');
 multiplyBtn.textContent = 'X';
 btnRow2.appendChild(multiplyBtn);
-multiplyBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += 'x';
+multiplyBtn.addEventListener('click', () => {    
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += 'x';
+        displayTextLoad--;
+    }
 })
 
 
@@ -132,7 +167,12 @@ oneBtn.classList.add('oneBtn');
 oneBtn.textContent = '1';
 btnRow3.appendChild(oneBtn);
 oneBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '1';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '1';
+        displayTextLoad--;
+    }
 })
 
 
@@ -141,7 +181,12 @@ twoBtn.classList.add('twoBth');
 twoBtn.textContent = '2';
 btnRow3.appendChild(twoBtn);
 twoBtn.addEventListener('click', () => {
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
     calcScrnTxt.textContent += '2';
+        displayTextLoad--;
+    }
 })
 
 const threeBtn = document.createElement('button');
@@ -149,7 +194,12 @@ threeBtn.classList.add('threeBtn');
 threeBtn.textContent = '3';
 btnRow3.appendChild(threeBtn);
 threeBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '3';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '3';
+        displayTextLoad--;
+    }
 })
 
 const subtractBtn = document.createElement('button');
@@ -157,7 +207,12 @@ subtractBtn.classList.add('subtractBtn');
 subtractBtn.textContent = '-';
 btnRow3.appendChild(subtractBtn);
 subtractBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '-';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '-';
+        displayTextLoad--;
+    }
 })
 
 
@@ -171,7 +226,12 @@ decimalBtn.textContent = '.';
 btnRow4.appendChild(decimalBtn);
 decimalBtn.classList.add('decimalBtn');
 decimalBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '.';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '.';
+        displayTextLoad--;
+    }
 })
 
 const zeroBtn = document.createElement('button');
@@ -179,7 +239,12 @@ zeroBtn.classList.add('twoBth');
 zeroBtn.textContent = '0';
 btnRow4.appendChild(zeroBtn);
 zeroBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '0';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '0';
+        displayTextLoad--;
+    }
 })
 
 
@@ -188,7 +253,12 @@ equalsBtn.classList.add('equalsBtn');
 equalsBtn.textContent = '=';
 btnRow4.appendChild(equalsBtn);
 equalsBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '=';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '=';
+        displayTextLoad--;
+    }
 })
 
 const addBtn = document.createElement('button');
@@ -196,7 +266,12 @@ addBtn.classList.add('addBtn');
 addBtn.textContent = '+';
 btnRow4.appendChild(addBtn);
 addBtn.addEventListener('click', () => {
-    calcScrnTxt.textContent += '+';
+    if (displayTextLoad === 0) {
+        calcScrnTxt.textContent = 'ERROR';
+    } else {
+        calcScrnTxt.textContent += '+';
+        displayTextLoad--;
+    }
 })
 
 function add(a, b) {
