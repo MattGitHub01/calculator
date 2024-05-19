@@ -24,10 +24,21 @@
 }
 
 .calcScrn {
+    display: flex;
+    font-size: 50px;
+    justify-content: right;
+    align-items: center;
     width: 70%;
     background-color: lightgray;
     height: 70px;
     text-align: right;
+}
+
+.calcScrnTxt {
+
+    height: 100%;
+    width: 100%;
+    margin: -10px;
 }
 
 .btnPad {
