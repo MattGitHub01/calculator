@@ -10,33 +10,37 @@ let currentNum = '';
 function add(a, b) {
     a = Number(a);
     b = Number(b);
-    calcScrnTxt.textContent = a + b;
-    result = a + b;
-    return a + b
+    let answer = a + b;
+    result = Math.round(answer * 100) / 100;
+    calcScrnTxt.textContent = result;
+    return result;
 }
 
 function subtract(a ,b) {
     a = Number(a);
     b = Number(b);
-    calcScrnTxt.textContent = a - b;
-    result = a - b;
-    return a - b
+    let answer = a - b;
+    result = Math.round(answer * 100) / 100;
+    calcScrnTxt.textContent = result;
+    return result
 }
 
 function multiply(a, b) {
     a = Number(a);
     b = Number(b);
-    calcScrnTxt.textContent = a * b;
-    result = a * b;
-    return a * b
+    let answer = a * b;
+    result = Math.round(answer * 100) / 100;
+    calcScrnTxt.textContent = result;
+    return result
 }
 
 function divide(a, b) {
     a = Number(a);
     b = Number(b);
-    calcScrnTxt.textContent = a / b;
-    result = a / b;
-    return a / b
+    let answer = a / b;
+    result = Math.round(answer * 100) / 100;
+    calcScrnTxt.textContent = result;
+    return result
 }
 
 function operate(operator, a, b) {
@@ -445,7 +449,7 @@ addBtn.addEventListener('click', () => {
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '+';
-        displayTextLoad--;
+        displayTextLoad = 8;
     } else {
         displayStart = true;
         prevNum = currentNum;
@@ -453,6 +457,6 @@ addBtn.addEventListener('click', () => {
         operatorCode = 1;
         calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '+';
-        displayTextLoad--;
+        displayTextLoad = 8;
     }
 });
