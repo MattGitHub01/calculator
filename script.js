@@ -68,17 +68,18 @@ deleteBtn.addEventListener('click', () => {
     displayStart = true;
     displayTextLoad = 8;
     calcScrnTxt.textContent = '0';
-})
+});
 
 const clearEntryBtn = document.createElement('button');
 clearEntryBtn.classList.add('clearEntryBtn');
 clearEntryBtn.textContent = 'CE'
 btnRowDelete.appendChild(clearEntryBtn);
-deleteBtn.addEventListener('click', () => {
+clearEntryBtn.addEventListener('click', () => {
     nextNum = null;
+    displayStart = true;
     displayTextLoad = 8;
     calcScrnTxt.textContent = '0';
-})
+});
 
 
 const btnRow1 = document.createElement('div');
@@ -100,7 +101,7 @@ sevenBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '7';
         displayTextLoad--;
     }
-})
+});
 
 const eightBtn = document.createElement('button');
 eightBtn.classList.add('eightBtn');
@@ -145,6 +146,10 @@ btnRow1.appendChild(divideBtn);
 divideBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '÷';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '÷';
         displayTextLoad--;
@@ -164,6 +169,10 @@ btnRow2.appendChild(fourBtn);
 fourBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '4';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '4';
         displayTextLoad--;
@@ -178,6 +187,10 @@ btnRow2.appendChild(fiveBtn);
 fiveBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '5';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '5';
         displayTextLoad--;
@@ -191,6 +204,10 @@ btnRow2.appendChild(sixBtn);
 sixBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '6';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '6';
         displayTextLoad--;
@@ -204,6 +221,10 @@ btnRow2.appendChild(multiplyBtn);
 multiplyBtn.addEventListener('click', () => {    
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = 'x';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += 'x';
         displayTextLoad--;
@@ -222,6 +243,10 @@ btnRow3.appendChild(oneBtn);
 oneBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '1';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '1';
         displayTextLoad--;
@@ -236,8 +261,12 @@ btnRow3.appendChild(twoBtn);
 twoBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '2';
+        displayTextLoad--;
     } else {
-    calcScrnTxt.textContent += '2';
+        calcScrnTxt.textContent += '2';
         displayTextLoad--;
     }
 })
@@ -249,6 +278,10 @@ btnRow3.appendChild(threeBtn);
 threeBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '3';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '3';
         displayTextLoad--;
@@ -262,6 +295,10 @@ btnRow3.appendChild(subtractBtn);
 subtractBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '-';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '-';
         displayTextLoad--;
@@ -281,6 +318,10 @@ decimalBtn.classList.add('decimalBtn');
 decimalBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '.';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '.';
         displayTextLoad--;
@@ -294,6 +335,10 @@ btnRow4.appendChild(zeroBtn);
 zeroBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '0';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '0';
         displayTextLoad--;
@@ -308,6 +353,10 @@ btnRow4.appendChild(equalsBtn);
 equalsBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '=';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '=';
         displayTextLoad--;
@@ -321,28 +370,12 @@ btnRow4.appendChild(addBtn);
 addBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '+';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '+';
         displayTextLoad--;
     }
 })
-
-function add(a, b) {
-    return a + b
-}
-
-function subtract(a ,b) {
-    return a - b
-}
-
-function multiply(a, b) {
-    return a * b
-}
-
-function divide(a, b) {
-    return a / b
-}
-
-function operate(operator, a, b) {
-
-}

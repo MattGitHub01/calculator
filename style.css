@@ -73,7 +73,7 @@ button:active {
 
 .clearEntryBtn {
     width: 150px;
-    background-color: teal;
+    background-color: rgb(3, 152, 175);
 }
 
 .clearEntryBtn:active {
