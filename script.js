@@ -1,34 +1,58 @@
 let prevNum;
-let operation;
 let nextNum;
+let result = 0;
+let operatorCode = null;
 let displayTextLoad = 8;
 let displayStart = true;
 let currentNum = '';
 
 
 function add(a, b) {
-   //CODE 1
+    a = Number(a);
+    b = Number(b);
+    calcScrnTxt.textContent = a + b;
+    result = a + b;
     return a + b
 }
 
 function subtract(a ,b) {
-  //CODE2
+    a = Number(a);
+    b = Number(b);
+    calcScrnTxt.textContent = a - b;
+    result = a - b;
     return a - b
 }
 
 function multiply(a, b) {
-    //CODE 3
+    a = Number(a);
+    b = Number(b);
+    calcScrnTxt.textContent = a * b;
+    result = a * b;
     return a * b
 }
 
 function divide(a, b) {
-    //CODE 4
+    a = Number(a);
+    b = Number(b);
+    calcScrnTxt.textContent = a / b;
+    result = a / b;
     return a / b
 }
 
 function operate(operator, a, b) {
     a = prevNum;
     b = nextNum;
+    if (operatorCode == 1) {
+        add(a, b);
+    } else if (operatorCode == 2) {
+        subtract(a, b);
+    } else if (operatorCode == 3) {
+        multiply(a, b);
+    } else if (operatorCode == 4) {
+        divide(a, b);
+    } else {
+        calcScrnTxt.textContent = 'ERROR';
+    }
 }
 
 
@@ -51,6 +75,7 @@ calcBody.appendChild(calcScrn);
 const calcScrnTxt = document.createElement('div');
 calcScrnTxt.classList.add('calcScrnTxr');
 calcScrnTxt.textContent = '0';
+currentNum = calcScrnTxt.textContent;
 calcScrn.appendChild(calcScrnTxt);
 
 
@@ -107,7 +132,7 @@ sevenBtn.addEventListener('click', () => {
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '7';
-        currentNum += calcScrnTxt.textContent;
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -121,9 +146,11 @@ eightBtn.addEventListener('click', () => {
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '8';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '8';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -138,9 +165,11 @@ nineBtn.addEventListener('click', () => {
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '9';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '9';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -153,16 +182,20 @@ btnRow1.appendChild(divideBtn);
 divideBtn.addEventListener('click', () => {
 if (displayStart === true) {
         displayStart = true;
-        prevNum = calcScrnTxt.textContent;
+        prevNum = currentNum;
+        currentNum = 0;
         operatorCode = 4;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
-        displayTextLoad--;
+        displayTextLoad = 8;
     } else {
         displayStart = true;
-        prevNum = calcScrnTxt.textContent;
+        prevNum = currentNum;
+        currentNum = 0;
         operatorCode = 4;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '÷';
-        displayTextLoad--;
+        displayTextLoad = 8;
     }
 });
 
@@ -178,13 +211,14 @@ fourBtn.textContent = '4';
 btnRow2.appendChild(fourBtn);
 fourBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '4';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '4';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -196,13 +230,14 @@ fiveBtn.textContent = '5';
 btnRow2.appendChild(fiveBtn);
 fiveBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '5';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '5';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -213,13 +248,14 @@ sixBtn.textContent = '6';
 btnRow2.appendChild(sixBtn);
 sixBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '6';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '6';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -229,15 +265,22 @@ multiplyBtn.classList.add('multiplyBtn');
 multiplyBtn.textContent = 'X';
 btnRow2.appendChild(multiplyBtn);
 multiplyBtn.addEventListener('click', () => {    
-    if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
-    } else if (displayStart === true) {
-        displayStart = false;
+    if (displayStart === true) {
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 3;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = 'x';
-        displayTextLoad--;
+        displayTextLoad = 8;
     } else {
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 3;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += 'x';
-        displayTextLoad--;
+        displayTextLoad = 8;
     }
 });
 
@@ -252,13 +295,14 @@ oneBtn.textContent = '1';
 btnRow3.appendChild(oneBtn);
 oneBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '1';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '1';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -270,13 +314,14 @@ twoBtn.textContent = '2';
 btnRow3.appendChild(twoBtn);
 twoBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '2';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '2';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -287,13 +332,14 @@ threeBtn.textContent = '3';
 btnRow3.appendChild(threeBtn);
 threeBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '3';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '3';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -303,15 +349,22 @@ subtractBtn.classList.add('subtractBtn');
 subtractBtn.textContent = '-';
 btnRow3.appendChild(subtractBtn);
 subtractBtn.addEventListener('click', () => {
-    if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
-    } else if (displayStart === true) {
-        displayStart = false;
+    if (displayStart === true) {
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 2;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '-';
-        displayTextLoad--;
+        displayTextLoad = 8;
     } else {
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 2;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '-';
-        displayTextLoad--;
+        displayTextLoad = 8;
     }
 });
 
@@ -327,7 +380,6 @@ btnRow4.appendChild(decimalBtn);
 decimalBtn.classList.add('decimalBtn');
 decimalBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '.';
@@ -344,13 +396,14 @@ zeroBtn.textContent = '0';
 btnRow4.appendChild(zeroBtn);
 zeroBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
         displayStart = false;
         calcScrnTxt.textContent = '0';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '0';
+        currentNum = calcScrnTxt.textContent;
         displayTextLoad--;
     }
 });
@@ -362,14 +415,20 @@ equalsBtn.textContent = '=';
 btnRow4.appendChild(equalsBtn);
 equalsBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
-        displayStart = false;
-        calcScrnTxt.textContent = '=';
-        displayTextLoad--;
+        displayStart = true;
+        nextNum = currentNum;
+        operate(operatorCode, prevNum, nextNum);
+        currentNum = result;
+        nextNum = 0;
+        displayTextLoad = 8;
     } else {
-        calcScrnTxt.textContent += '=';
-        displayTextLoad--;
+        displayStart = true;
+        nextNum = currentNum;
+        operate(operatorCode, prevNum, nextNum);
+        currentNum = result;
+        nextNum = 0;
+        displayTextLoad = 8;
     }
 });
 
@@ -379,12 +438,20 @@ addBtn.textContent = '+';
 btnRow4.appendChild(addBtn);
 addBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
     } else if (displayStart === true) {
-        displayStart = false;
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 1;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent = '+';
         displayTextLoad--;
     } else {
+        displayStart = true;
+        prevNum = currentNum;
+        currentNum = 0;
+        operatorCode = 1;
+        calcScrnTxt.textContent = '';
         calcScrnTxt.textContent += '+';
         displayTextLoad--;
     }
