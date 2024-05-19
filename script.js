@@ -118,7 +118,7 @@ eightBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '8';
         displayTextLoad--;
     }
-})
+});
 
 
 const nineBtn = document.createElement('button');
@@ -136,7 +136,7 @@ nineBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '9';
         displayTextLoad--;
     }
-})
+});
 
 
 const divideBtn = document.createElement('button');
@@ -154,7 +154,7 @@ divideBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '÷';
         displayTextLoad--;
     }
-})
+});
 
 
 
@@ -177,7 +177,7 @@ fourBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '4';
         displayTextLoad--;
     }
-})
+});
 
 
 const fiveBtn = document.createElement('button');
@@ -195,7 +195,7 @@ fiveBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '5';
         displayTextLoad--;
     }
-})
+});
 
 const sixBtn = document.createElement('button');
 sixBtn.classList.add('sixBtn');
@@ -212,7 +212,7 @@ sixBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '6';
         displayTextLoad--;
     }
-})
+});
 
 const multiplyBtn = document.createElement('button');
 multiplyBtn.classList.add('multiplyBtn');
@@ -229,7 +229,7 @@ multiplyBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += 'x';
         displayTextLoad--;
     }
-})
+});
 
 
 const btnRow3 = document.createElement('div');
@@ -251,7 +251,7 @@ oneBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '1';
         displayTextLoad--;
     }
-})
+});
 
 
 const twoBtn = document.createElement('button');
@@ -269,7 +269,7 @@ twoBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '2';
         displayTextLoad--;
     }
-})
+});
 
 const threeBtn = document.createElement('button');
 threeBtn.classList.add('threeBtn');
@@ -286,7 +286,7 @@ threeBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '3';
         displayTextLoad--;
     }
-})
+});
 
 const subtractBtn = document.createElement('button');
 subtractBtn.classList.add('subtractBtn');
@@ -303,7 +303,7 @@ subtractBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '-';
         displayTextLoad--;
     }
-})
+});
 
 
 const btnRow4 = document.createElement('div');
@@ -326,7 +326,7 @@ decimalBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '.';
         displayTextLoad--;
     }
-})
+});
 
 const zeroBtn = document.createElement('button');
 zeroBtn.classList.add('twoBth');
@@ -343,7 +343,7 @@ zeroBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '0';
         displayTextLoad--;
     }
-})
+});
 
 
 const equalsBtn = document.createElement('button');
@@ -361,7 +361,7 @@ equalsBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '=';
         displayTextLoad--;
     }
-})
+});
 
 const addBtn = document.createElement('button');
 addBtn.classList.add('addBtn');
@@ -378,4 +378,4 @@ addBtn.addEventListener('click', () => {
         calcScrnTxt.textContent += '+';
         displayTextLoad--;
     }
-})
+});
