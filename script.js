@@ -6,29 +6,28 @@ let displayStart = true;
 
 
 function add(a, b) {
-    operation = ' + ';
+   //CODE 1
     return a + b
 }
 
 function subtract(a ,b) {
-    operation = ' - ';
+  //CODE2
     return a - b
 }
 
 function multiply(a, b) {
-    operation = ' * ';
+    //CODE 3
     return a * b
 }
 
 function divide(a, b) {
-    operation = ' / ';
+    //CODE 4
     return a / b
 }
 
 function operate(operator, a, b) {
     a = prevNum;
     b = nextNum;
-    operator
 }
 
 
@@ -81,7 +80,6 @@ clearEntryBtn.classList.add('clearEntryBtn');
 clearEntryBtn.textContent = 'CE'
 btnRowDelete.appendChild(clearEntryBtn);
 clearEntryBtn.addEventListener('click', () => {
-    nextNum = null;
     displayStart = true;
     displayTextLoad = 8;
     calcScrnTxt.textContent = '0';
@@ -150,10 +148,10 @@ divideBtn.classList.add('divideBtn');
 divideBtn.textContent = '÷';
 btnRow1.appendChild(divideBtn);
 divideBtn.addEventListener('click', () => {
-    if (displayTextLoad === 0) {
-        calcScrnTxt.textContent = 'ERROR';
-    } else if (displayStart === true) {
-        displayStart = false;
+if (displayStart === true) {
+        displayStart = true;
+        prevNum = calcScrnTxt.textContent;
+        operatorCode = 4;
         calcScrnTxt.textContent = '÷';
         displayTextLoad--;
     } else {
