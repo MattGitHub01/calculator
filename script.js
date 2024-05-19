@@ -6,23 +6,29 @@ let displayStart = true;
 
 
 function add(a, b) {
+    operation = ' + ';
     return a + b
 }
 
 function subtract(a ,b) {
+    operation = ' - ';
     return a - b
 }
 
 function multiply(a, b) {
+    operation = ' * ';
     return a * b
 }
 
 function divide(a, b) {
+    operation = ' / ';
     return a / b
 }
 
 function operate(operator, a, b) {
-
+    a = prevNum;
+    b = nextNum;
+    operator
 }
 
 
