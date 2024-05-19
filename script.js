@@ -1,5 +1,32 @@
-const container = document.querySelector('.container');
+let prevNum;
+let operation;
+let nextNum;
+let displayTextLoad = 8;
+let displayStart = true;
 
+
+function add(a, b) {
+    return a + b
+}
+
+function subtract(a ,b) {
+    return a - b
+}
+
+function multiply(a, b) {
+    return a * b
+}
+
+function divide(a, b) {
+    return a / b
+}
+
+function operate(operator, a, b) {
+
+}
+
+
+const container = document.querySelector('.container');
 
 const calcBody = document.createElement('div');
 calcBody.classList.add('calcBody');
@@ -17,9 +44,9 @@ calcBody.appendChild(calcScrn);
 
 const calcScrnTxt = document.createElement('div');
 calcScrnTxt.classList.add('calcScrnTxr');
+calcScrnTxt.textContent = '0';
 calcScrn.appendChild(calcScrnTxt);
 
-let displayTextLoad = 8;
 
 const btnPad = document.createElement('div');
 btnPad.classList.add('btnPad');
@@ -35,8 +62,22 @@ deleteBtn.classList.add('deleteBtn');
 deleteBtn.textContent = 'AC'
 btnRowDelete.appendChild(deleteBtn);
 deleteBtn.addEventListener('click', () => {
+    prevNum = null;
+    operator = null;
+    nextNum = null;
+    displayStart = true;
     displayTextLoad = 8;
-    calcScrnTxt.textContent = '';
+    calcScrnTxt.textContent = '0';
+})
+
+const clearEntryBtn = document.createElement('button');
+clearEntryBtn.classList.add('clearEntryBtn');
+clearEntryBtn.textContent = 'CE'
+btnRowDelete.appendChild(clearEntryBtn);
+deleteBtn.addEventListener('click', () => {
+    nextNum = null;
+    displayTextLoad = 8;
+    calcScrnTxt.textContent = '0';
 })
 
 
@@ -51,6 +92,10 @@ btnRow1.appendChild(sevenBtn);
 sevenBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '7';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '7';
         displayTextLoad--;
@@ -64,6 +109,10 @@ btnRow1.appendChild(eightBtn);
 eightBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '8';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '8';
         displayTextLoad--;
@@ -78,6 +127,10 @@ btnRow1.appendChild(nineBtn);
 nineBtn.addEventListener('click', () => {
     if (displayTextLoad === 0) {
         calcScrnTxt.textContent = 'ERROR';
+    } else if (displayStart === true) {
+        displayStart = false;
+        calcScrnTxt.textContent = '9';
+        displayTextLoad--;
     } else {
         calcScrnTxt.textContent += '9';
         displayTextLoad--;
