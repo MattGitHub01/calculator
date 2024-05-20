@@ -94,7 +94,7 @@ calcBody.classList.add('calcBody');
 container.appendChild(calcBody);
 
 const title = document.createElement('h3');
-title.textContent = 'Calculator';
+title.textContent = 'Calculator!';
 title.classList.add('title');
 calcBody.appendChild(title);
 
